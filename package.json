@@ -4,8 +4,8 @@
   "description": "A powerfull boilerplate for Typescript API's",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"node ./dist/server.js\"",
-    "start": "node ./dist/server.js",
+    "dev": "tsc-watch --onSuccess \"sls offline start\"",
+    "deploy:prd": "sls deploy --stage='dev' --aws-profile=brian",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,7 +28,8 @@
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "serverless-http": "^2.3.0"
   },
   "devDependencies": {
     "@types/compression": "^1.0.1",
@@ -44,6 +45,7 @@
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-import": "^2.18.2",
     "prettier": "^1.18.2",
+    "serverless-offline": "^5.12.0",
     "tsc-watch": "^4.0.0",
     "typescript": "^3.6.3"
   }

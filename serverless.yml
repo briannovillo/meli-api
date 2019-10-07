@@ -1,0 +1,29 @@
+service: meli-api-interview
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  config: ${file(./config/${self:custom.stage}.yml):config}
+
+provider:
+  name: aws
+  region: us-east-1
+  runtime: nodejs10.x
+  stackTags:
+    Env: ${self:custom.stage}
+
+  environment: ${self:custom.config.environment}
+
+functions:
+  meli-api-interview:
+    handler: ./dist/server.handler
+    name: meli-api-interview-${self:custom.stage}
+    description: Lambda Wrapper for MELI API
+    memorySize: 128
+    timeout: 30
+    reservedConcurrency: 1
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
+plugins:
+  - serverless-offline

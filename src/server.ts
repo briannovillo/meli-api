@@ -1,4 +1,4 @@
-import http from "http";
+const serverless = require('serverless-http');
 import express from "express";
 import { applyMiddleware, applyRoutes } from "./utils";
 import routes from "./routes";
@@ -18,9 +18,4 @@ const router = express();
 applyMiddleware(middlewares, router);
 applyRoutes(routes, router);
 
-const { PORT = 3000 } = process.env;
-const server = http.createServer(router);
-
-server.listen(PORT, () =>
-    console.log(`Server is running http://localhost:${PORT}...`)
-);
+exports.handler = serverless(router);
