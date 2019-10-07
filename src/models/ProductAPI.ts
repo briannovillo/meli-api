@@ -14,33 +14,34 @@ declare class Product {
     picture: String
     condition: String
     free_shipping: Boolean
-    sold_quantity: Number
-    description: String
+    sold_quantity?: Number
+    description?: String
 }
 
-class ProductAPIResponse {
+class GetProductAPIResponse {
     readonly author: Author;
     private item: Product;
 
-    constructor(product: any) {
+    constructor(product: Product) {
         this.author = { name: "Brian", lastname: "Novillo" };
-        this.item = {
-            id: product.id,
-            title: product.title,
-            price: {
-                currency: product.currency_id,
-                amount: product.price,
-                decimals: 0
-            },
-            picture: product.pictures[0].url,
-            condition: product.condition,
-            free_shipping: product.shipping.free_shipping,
-            sold_quantity: product.sold_quantity,
-            description: "product.description"
-        };
+        this.item = product;
     }
-    //categories: [String]
-    //items: [Product]
 }
 
-export default ProductAPIResponse;
+class SearchProductsAPIResponse {
+    readonly author: Author;
+    private items: [Product];
+    private categories: [String];
+
+    constructor(products: [Product], categories: [String]) {
+        this.author = { name: "Brian", lastname: "Novillo" };
+        this.items = products;
+        this.categories = categories;
+    }
+}
+
+export {
+    Product,
+    GetProductAPIResponse,
+    SearchProductsAPIResponse
+};
