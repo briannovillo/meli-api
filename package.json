@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "tsc-watch --onSuccess \"sls offline start\"",
     "deploy:prd": "sls deploy --stage='dev' --aws-profile=brian",
+    "apidoc": "npx apidoc -i ./src/routes/ -o doc/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -40,13 +41,21 @@
     "@types/node-fetch": "^2.5.2",
     "@typescript-eslint/eslint-plugin": "^2.3.2",
     "@typescript-eslint/parser": "^2.3.2",
+    "apidoc": "^0.17.7",
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-import": "^2.18.2",
     "prettier": "^1.18.2",
+    "serverless": "^1.53.0",
     "serverless-offline": "^5.12.0",
     "tsc-watch": "^4.0.0",
     "typescript": "^3.6.3"
+  },
+  "apidoc": {
+    "name": "MELI API",
+    "title": "A powerfull wrapper for MELI API",
+    "url": "http://briannovillo.github.io/meli_api",
+    "version": "1.0.0"
   }
 }
