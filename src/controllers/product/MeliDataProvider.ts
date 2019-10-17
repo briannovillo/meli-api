@@ -1,17 +1,17 @@
 import fetch from 'node-fetch';
-import config from '../../config';
+const config = require('config');
 
 export const searchProductsByTitle = async (query: string) => {
-    return await fetch(`${config.MELI_API_HOST}${config.MELI_API_SEARCH_ENDPOINT}?q=${query}`)
+    return await fetch(`${config.get("HOSTS.MELI_API")}${config.get("ENDPOINTS.MELI_API_SEARCH")}?q=${query}`)
                     .then(res => res.json())
                     .then(res => res.results);
 };
 
 export const getProductsById = async (id: string) => {
-    const productPromise = fetch(`${config.MELI_API_HOST}${config.MELI_API_ITEMS_ENDPOINT}/${id}`)
+    const productPromise = fetch(`${config.get("HOSTS.MELI_API")}${config.get("ENDPOINTS.MELI_API_ITEMS")}/${id}`)
                                 .then(res => res.json());
 
-    const productDescriptionPromise = fetch(`${config.MELI_API_HOST}${config.MELI_API_ITEMS_ENDPOINT}/${id}/description`)
+    const productDescriptionPromise = fetch(`${config.get("HOSTS.MELI_API")}${config.get("ENDPOINTS.MELI_API_ITEMS")}/${id}/description`)
                                             .then(res => res.json());
 
     const promises = await Promise.all([productPromise, productDescriptionPromise]);

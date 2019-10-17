@@ -13,16 +13,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const node_fetch_1 = __importDefault(require("node-fetch"));
-const config_1 = __importDefault(require("../../config"));
+const config = require('config');
 exports.searchProductsByTitle = (query) => __awaiter(void 0, void 0, void 0, function* () {
-    return yield node_fetch_1.default(`${config_1.default.MELI_API_HOST}${config_1.default.MELI_API_SEARCH_ENDPOINT}?q=${query}`)
+    return yield node_fetch_1.default(`${config.get("HOSTS.MELI_API")}${config.get("ENDPOINTS.MELI_API_SEARCH")}?q=${query}`)
         .then(res => res.json())
         .then(res => res.results);
 });
 exports.getProductsById = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const productPromise = node_fetch_1.default(`${config_1.default.MELI_API_HOST}${config_1.default.MELI_API_ITEMS_ENDPOINT}/${id}`)
+    const productPromise = node_fetch_1.default(`${config.get("HOSTS.MELI_API")}${config.get("ENDPOINTS.MELI_API_ITEMS")}/${id}`)
         .then(res => res.json());
-    const productDescriptionPromise = node_fetch_1.default(`${config_1.default.MELI_API_HOST}${config_1.default.MELI_API_ITEMS_ENDPOINT}/${id}/description`)
+    const productDescriptionPromise = node_fetch_1.default(`${config.get("HOSTS.MELI_API")}${config.get("ENDPOINTS.MELI_API_ITEMS")}/${id}/description`)
         .then(res => res.json());
     const promises = yield Promise.all([productPromise, productDescriptionPromise]);
     return Object.assign(Object.assign({}, promises[0]), { description: promises[1].plain_text });

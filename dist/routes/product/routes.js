@@ -12,6 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const ProductController_1 = require("../../controllers/product/ProductController");
 exports.default = [
     {
+        /**
+        * @api {get} /api/items/ Search Products
+        * @apiName search
+        * @apiGroup Product
+        *
+        * @apiParam {String} q Text for search in Product Title.
+        *
+        * @apiSuccess {Object} product.
+        */
         path: "/api/items",
         method: "get",
         handler: [
@@ -23,6 +32,15 @@ exports.default = [
         ]
     },
     {
+        /**
+        * @api {get} /api/items/:id Get Product by ID
+        * @apiName get
+        * @apiGroup Product
+        *
+        * @apiParam {String} id Product ID.
+        *
+        * @apiSuccess {Object} product.
+        */
         path: "/api/items/:id",
         method: "get",
         handler: [

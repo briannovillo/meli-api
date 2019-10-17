@@ -1,33 +1,33 @@
 {
-  "name": "ts-api-boilerplate",
+  "name": "meli-api",
   "version": "1.0.0",
-  "description": "A powerfull boilerplate for Typescript API's",
+  "description": "A serverless wrapper for MELI API's",
   "main": "index.js",
   "scripts": {
     "dev": "tsc-watch --onSuccess \"sls offline start\"",
-    "deploy:prd": "sls deploy --stage='dev' --aws-profile=brian",
-    "apidoc": "npx apidoc -i ./src/routes/ -o doc/",
+    "deploy:prd": "serverless config credentials --provider aws --key $AWS_DEV_KEY --secret $AWS_DEV_SECRET -o && sls deploy --stage='prd'",
+    "apidoc": "npx apidoc -i ./src/routes/ -o docs/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/briannovillo/ts-api-boilerplate.git"
+    "url": "git+https://github.com/briannovillo/meli-api.git"
   },
   "keywords": [
     "ts",
     "api",
-    "boilerplate"
+    "meli"
   ],
   "author": "Brian Novillo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/briannovillo/ts-api-boilerplate/issues"
+    "url": "https://github.com/briannovillo/meli-api/issues"
   },
-  "homepage": "https://github.com/briannovillo/ts-api-boilerplate#readme",
+  "homepage": "https://github.com/briannovillo/meli-api#readme",
   "dependencies": {
     "compression": "^1.7.4",
+    "config": "^3.2.3",
     "cors": "^2.8.5",
-    "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
     "serverless-http": "^2.3.0"
@@ -55,7 +55,7 @@
   "apidoc": {
     "name": "MELI API",
     "title": "A powerfull wrapper for MELI API",
-    "url": "http://briannovillo.github.io/meli_api",
+    "url": "https://xcemt4j6ui.execute-api.us-east-1.amazonaws.com/prd",
     "version": "1.0.0"
   }
 }

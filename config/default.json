@@ -1,0 +1,10 @@
+{
+    "HOSTS": {
+        "MELI_API": "https://api.mercadolibre.com"
+    },
+    "ENDPOINTS": {
+        "MELI_API_SEARCH": "/sites/MLA/search",
+        "MELI_API_ITEMS": "/items"
+    }
+}
+      

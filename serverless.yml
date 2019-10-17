@@ -2,7 +2,7 @@ service: meli-api-interview
 
 custom:
   stage: ${opt:stage, self:provider.stage}
-  config: ${file(./config/${self:custom.stage}.yml):config}
+  config: ${file(./config/default.json)}
 
 provider:
   name: aws
@@ -10,8 +10,6 @@ provider:
   runtime: nodejs10.x
   stackTags:
     Env: ${self:custom.stage}
-
-  environment: ${self:custom.config.environment}
 
 functions:
   meli-api-interview:
