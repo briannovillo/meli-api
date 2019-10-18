@@ -1,0 +1,9 @@
+{
+    "hosts": {
+        "meliApi": "HOSTS_MELI_API"
+    },
+    "endpoints": {
+        "meliApiSearch": "ENDPOINTS_MELI_API_SEARCH",
+        "meliApiItems": "ENDPOINTS_MELI_API_ITEMS"
+    }
+}

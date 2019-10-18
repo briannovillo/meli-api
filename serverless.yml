@@ -1,9 +1,5 @@
 service: meli-api-interview
 
-custom:
-  stage: ${opt:stage, self:provider.stage}
-  config: ${file(./config/default.json)}
-
 provider:
   name: aws
   region: us-east-1
