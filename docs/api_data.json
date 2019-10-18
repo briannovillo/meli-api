@@ -106,7 +106,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"author\": {\n    \"name\": String\n    \"lastname\": String\n  },\n  \"categories\": [ String, String ... ],\n  \"items\":[\n    {  \n      \"id\": String,\n      \"title\": String,\n      \"price\": {  \n          \"currency\": String,\n          \"amount\": Number,\n          \"decimals\": Number\n      },\n      \"picture\": String,\n      \"condition\": String,\n      \"free_shipping\": Boolean\n    }\n  ]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"author\": {\n    \"name\": String\n    \"lastname\": String\n  },\n  \"categories\": [ String, String ... ],\n  \"items\":[\n    {\n      \"id\": String,\n      \"title\": String,\n      \"price\": {\n          \"currency\": String,\n          \"amount\": Number,\n          \"decimals\": Number\n      },\n      \"picture\": String,\n      \"condition\": String,\n      \"free_shipping\": Boolean\n    }\n  ]\n}",
           "type": "200"
         }
       ]
