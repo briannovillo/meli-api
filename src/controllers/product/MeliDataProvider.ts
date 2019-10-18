@@ -1,13 +1,13 @@
 import fetch from 'node-fetch';
 const config = require('config');
 
-export const searchProductsByTitle = async (query: string) => {
+export const searchProductsByTitle = async (query: string) : Promise<any> => {
     return await fetch(`${config.get("hosts.meliApi")}${config.get("endpoints.meliApiSearch")}?q=${query}`)
                     .then(res => res.json())
                     .then(res => res.results);
 };
 
-export const getProductsById = async (id: string) => {
+export const getProductsById = async (id: string) : Promise<any> => {
     const productPromise = fetch(`${config.get("hosts.meliApi")}${config.get("endpoints.meliApiItems")}/${id}`)
                                 .then(res => res.json());
 

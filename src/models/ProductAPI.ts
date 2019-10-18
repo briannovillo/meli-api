@@ -1,6 +1,10 @@
-interface Author {
-    readonly name: String;
-    readonly lastname: String;
+class Author {
+    readonly name: String = "Brian";
+    readonly lastname: String = "Novillo";
+}
+
+interface IAuthor {
+    readonly author: Author
 }
 
 declare class Product {
@@ -18,27 +22,28 @@ declare class Product {
     description?: String
 }
 
-class GetProductAPIResponse {
+class GetProductAPIResponse implements IAuthor {
     readonly author: Author;
     private item: Product;
 
     constructor(product: Product) {
-        this.author = { name: "Brian", lastname: "Novillo" };
+        this.author = new Author();
         this.item = product;
     }
 }
 
-class SearchProductsAPIResponse {
+class SearchProductsAPIResponse implements IAuthor {
     readonly author: Author;
     private items: [Product];
     private categories: [String];
 
     constructor(products: [Product], categories: [String]) {
-        this.author = { name: "Brian", lastname: "Novillo" };
+        this.author = new Author();
         this.items = products;
         this.categories = categories;
     }
 }
+
 
 export {
     Product,

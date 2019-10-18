@@ -1,28 +1,28 @@
 import { searchProductsByTitle, getProductsById } from "./MeliDataProvider";
 import { Product, GetProductAPIResponse, SearchProductsAPIResponse } from "../../models/ProductAPI";
 
-export const search = async (q: string) => {
+export const search = async (q: string) : Promise<SearchProductsAPIResponse> => {
   const products = await searchProductsByTitle(q);
-  const items = products.map((product: any) => <Product>(
+  const items = products.map((json: any) => <Product>(
     {
-      id: product.id,
-      title: product.title,
+      id: json.id,
+      title: json.title,
       price: {
-          currency: product.currency_id,
-          amount: product.price,
+          currency: json.currency_id,
+          amount: json.price,
           decimals: 0
       },
-      picture: product.thumbnail,
-      condition: product.condition,
-      free_shipping: product.shipping.free_shipping
+      picture: json.thumbnail,
+      condition: json.condition,
+      free_shipping: json.shipping.free_shipping
     }
   ));
-  const categories = products.map((product: any) => product.category_id);
+  const categories = products.map((json: any) => json.category_id);
 
   return new SearchProductsAPIResponse(items, categories);
 }
 
-export const get = async (id: string) => {
+export const get = async (id: string) : Promise<GetProductAPIResponse> => {
   const product = await getProductsById(id);
   const item = {
       id: product.id,
