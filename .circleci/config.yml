@@ -37,17 +37,17 @@ jobs:
           at: ~/tmp
       - run: npm run test
 
-  deploy_dev:
+  deploy_prd:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/tmp
       - run:
-          name: Deploy serverless
+          name: Deploy serverless function at production environment
           command: |
             sudo npm install -g serverless
             serverless config credentials --provider aws --key $AWS_DEV_KEY --secret $AWS_DEV_SECRET
-            serverless deploy --stage dev
+            serverless deploy --stage prd
 
 workflows:
   version: 2
@@ -61,7 +61,7 @@ workflows:
             - build
           filters:
             <<: *tag_filters
-      - deploy_dev:
+      - deploy_prd:
           requires:
             - tests
           filters:
