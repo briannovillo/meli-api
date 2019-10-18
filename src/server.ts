@@ -1,6 +1,6 @@
 const serverless = require('serverless-http');
 import express from "express";
-import { applyMiddleware, applyRoutes } from "./utils";
+import { applyMiddlewares, applyRoutes } from "./utils";
 import routes from "./routes";
 import middlewares from "./middlewares";
 
@@ -15,7 +15,7 @@ process.on("unhandledRejection", e => {
 });
 
 const router = express();
-applyMiddleware(middlewares, router);
+applyMiddlewares(middlewares, router);
 applyRoutes(routes, router);
 
 exports.handler = serverless(router);

@@ -1,31 +1,22 @@
 import { Router, Request, Response, NextFunction } from "express";
 
-type Wrapper = ((router: Router) => void);
+type Middleware = (router: Router) => void;
 
-export const applyMiddleware = (
-  middlewareWrappers: Wrapper[],
-  router: Router
-) => {
-  for (const wrapper of middlewareWrappers) {
-    wrapper(router);
-  }
-};
+export const applyMiddlewares = (middlewares: Middleware[], router: Router) => middlewares.forEach(
+  wrapper => wrapper(router)
+);
 
-type Handler = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => Promise<void> | void;
+type Handler = (req: Request, res: Response, next: NextFunction) => Promise<void>;
 
 type Route = {
-  path: string;
-  method: string;
-  handler: Handler | Handler[];
+  path: string; 
+  method: string; 
+  handler: Handler[];
 };
 
-export const applyRoutes = (routes: Route[], router: Router) => {
-  for (const route of routes) {
-    const { method, path, handler } = route;
+export const applyRoutes = (routes: Route[], router: Router) => routes.forEach(
+  (route: Route) => {
+    const { path, method, handler } = route;
     (router as any)[method](path, handler);
   }
-};
+);
