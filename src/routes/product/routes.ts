@@ -14,6 +14,7 @@ export default [
 		 *
 		 * @apiSuccess {Object} author Author of the API.
 		 * @apiSuccess {Object} item Item that match with the specified ID.
+		 * @apiSuccess {String[]} categories Categories of items.
 		 *
 		 * @apiSuccessExample {200} Success-Response:
 		 * HTTP/1.1 200 OK
