@@ -34,6 +34,13 @@ define({ "api": [
             "optional": false,
             "field": "item",
             "description": "<p>Item that match with the specified ID.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "categories",
+            "description": "<p>Categories of items.</p>"
           }
         ]
       },
