@@ -25,10 +25,12 @@ declare class Product {
 class GetProductAPIResponse implements IAuthor {
     readonly author: Author;
     private item: Product;
+    private categories: [String];
 
-    constructor(product: Product) {
+    constructor(product: Product, categories: [String]) {
         this.author = new Author();
         this.item = product;
+        this.categories = categories;
     }
 }
 

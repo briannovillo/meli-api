@@ -36,12 +36,14 @@ export default [
 		 *     "sold_quantity": Number,
 		 *     "description": String
 		 *   }
+		 *   "categories": [ String, String ... ]
 		 * }
 		 *
 		 * @apiErrorExample {json} Error-Response:
 		 * HTTP/1.1 400 Bad request
 		 * {
-		 *   "error": "Missing id parameter in path"
+		 *   "code": 400,
+		 *   "message": "Missing id parameter in path"
 		 * }
 		 */
 		path: "/api/items/:id",
@@ -51,7 +53,7 @@ export default [
 				if (req.params.id && isValidId(req.params.id)) {
 					res.status(200).send(await get(req.params.id));
 				} else {
-					res.status(400).send({ error: "Missing id parameter in path" });
+					res.status(400).send({ message: "Missing id parameter in path", code: 400 });
 				}
 			}
 		]
@@ -95,7 +97,8 @@ export default [
 		 * @apiErrorExample {json} Error-Response:
 		 * HTTP/1.1 400 Bad request
 		 * {
-		 *   "error": "Missing parameter q"
+		 *   "code": 400,
+		 *   "message": "Missing parameter q"
 		 * }
 		 */
 		path: "/api/items",
@@ -105,7 +108,7 @@ export default [
 				if (req.query.q) {
 					res.status(200).send(await search(req.query.q));
 				} else {
-					res.status(400).send({ error: "Missing parameter q" });
+					res.status(400).send({ message: "Missing parameter q", code: 400 });
 				}
 			}
 		]

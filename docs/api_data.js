@@ -40,7 +40,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"author\": {\n    \"name\": String\n    \"lastname\": String\n  },\n  \"item\": {\n    \"id\": String,\n    \"title\": String,\n    \"price\": {\n       \"currency\": String,\n       \"amount\": Number,\n       \"decimals\": Number\n    },\n    \"picture\": String,\n    \"condition\": String,\n    \"free_shipping\": Boolean,\n    \"sold_quantity\": Number,\n    \"description\": String\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"author\": {\n    \"name\": String\n    \"lastname\": String\n  },\n  \"item\": {\n    \"id\": String,\n    \"title\": String,\n    \"price\": {\n       \"currency\": String,\n       \"amount\": Number,\n       \"decimals\": Number\n    },\n    \"picture\": String,\n    \"condition\": String,\n    \"free_shipping\": Boolean,\n    \"sold_quantity\": Number,\n    \"description\": String\n  }\n  \"categories\": [ String, String ... ]\n}",
           "type": "200"
         }
       ]
@@ -49,7 +49,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Error-Response:",
-          "content": "HTTP/1.1 400 Bad request\n{\n  \"error\": \"Missing id parameter in path\"\n}",
+          "content": "HTTP/1.1 400 Bad request\n{\n  \"code\": 400,\n  \"message\": \"Missing id parameter in path\"\n}",
           "type": "json"
         }
       ]
@@ -115,7 +115,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Error-Response:",
-          "content": "HTTP/1.1 400 Bad request\n{\n  \"error\": \"Missing parameter q\"\n}",
+          "content": "HTTP/1.1 400 Bad request\n{\n  \"code\": 400,\n  \"message\": \"Missing parameter q\"\n}",
           "type": "json"
         }
       ]

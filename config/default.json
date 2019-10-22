@@ -4,6 +4,9 @@
     },
     "endpoints": {
         "meliApiSearch": "/sites/MLA/search",
-        "meliApiItems": "/items"
-    }
+        "meliApiItems": "/items",
+        "meliApiCategories": "/categories"
+    },
+    "meliApiSearchLimit": 4
+
 }
