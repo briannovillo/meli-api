@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsc-watch --onSuccess \"sls offline start\"",
-    "deploy:prd": "serverless config credentials --provider aws --key $AWS_DEV_KEY --secret $AWS_DEV_SECRET -o && sls deploy --stage='prd'",
+    "deploy:prd": "serverless config credentials --provider aws --key $AWS_KEY --secret $AWS_SECRET -o && sls deploy --stage='prd'",
     "apidoc": "npx apidoc -i ./src/routes/ -o docs/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
