@@ -1,5 +1,8 @@
-// Returns decimals of a given number
-export const getDecimalsFromNumber = (number: number) : number => parseInt((number - Math.floor(number)).toString().slice(2, 4));
+// Returns only two decimals of a given float (with at least two decimals) or zero otherwise
+export const getDecimalsFromNumber = (number: number) : number => {
+  const decimals = number - Math.floor(number);
+  return decimals > 0 ? parseInt(decimals.toString().slice(2, 4)) : 0;
+}
 
 // Returns most frequent word in array
 export const getMostFrequentWord = (array: any) => {
