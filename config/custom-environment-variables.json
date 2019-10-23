@@ -4,7 +4,8 @@
     },
     "endpoints": {
         "meliApiSearch": "ENDPOINTS_MELI_API_SEARCH",
-        "meliApiItems": "ENDPOINTS_MELI_API_ITEMS"
+        "meliApiItems": "ENDPOINTS_MELI_API_ITEMS",
+        "meliApiCategories": "ENDPOINTS_MELI_API_CATEGORIES"
     },
     "meliApiSearchLimit": "MELI_API_SEARCH_LIMIT"
 }
