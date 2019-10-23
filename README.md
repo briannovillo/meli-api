@@ -12,13 +12,13 @@ Documentación de la API: https://briannovillo.github.io/meli-api/
 - [x] *Express* como motor de routing y middleware porque se requería en el documento de especificación
 - [x] Se deployó el proyecto con *serverless*, el mismo se usa tanto en local durante el desarrollo con [serverless offline](https://github.com/dherault/serverless-offline), como en produccion como una funcion lambda de AWS bajo un Api Gateway
 - [x] Se configuró *CircleCI* para que cada vez que se hace una release de Github se corran los tests y se haga deploy del Lambda en produccion, al tener este proceso simplificado se puede tener delivery continuo en prod
-- [x] Se agrego *apidoc* para mantener documentados con comentarios todos los recursos de la API
-- [x] El proyecto cuenta tambien con *ESLint* para mantener la consistencia en el formato del codigo aunque desarrollen equipos de muchas personas.
+- [x] Se agregó *apidoc* para mantener documentados con comentarios todos los recursos de la API
+- [x] El proyecto cuenta tambien con *ESLint* para mantener la consistencia en el formato del código aunque desarrollen equipos de muchas personas.
 - [ ] Agregar tests con *mocha/chai/sinon*
 - [ ] Agregar *Morgan+Winston* como Logger remoto
 - [ ] Agregar badges de Github tales como build passing o code coverage
 
-#### Para levantar el proyecto en local
+#### Para iniciar el proyecto en un entorno local
 
 1. Clonar repositorio e instalar dependencias
 ```
@@ -26,19 +26,19 @@ git clone https://github.com/briannovillo/meli-api.git
 npm install
 ```
 
-2. Correr el server en local con hot reloading
+2. Correr el server con hot reloading
 ```
 npm run dev
 ```
 
-#### Otros comandos utiles
+#### Otros comandos útiles
 
 * Si actualizamos la doc dentro del router deberemos correr el siguiente comando y hacer commit de los archivos actualizados dentro de la carpeta /docs
 ```
 npm run apidoc
 ```
 
-* Si se tienen las keys y token de AWS se puede realizar un hotfix en producción con el comando
+* Si se tienen las keys y token de AWS se puede realizar un hotfix en producción con el siguiente comando
 ```
 npm run deploy:prd
 ```
