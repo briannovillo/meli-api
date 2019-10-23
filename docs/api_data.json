@@ -46,7 +46,7 @@
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response: 200",
           "content": "HTTP/1.1 200 OK\n{\n  \"author\": {\n    \"name\": String\n    \"lastname\": String\n  },\n  \"item\": {\n    \"id\": String,\n    \"title\": String,\n    \"price\": {\n       \"currency\": String,\n       \"amount\": Number,\n       \"decimals\": Number\n    },\n    \"picture\": String,\n    \"condition\": String,\n    \"free_shipping\": Boolean,\n    \"sold_quantity\": Number,\n    \"description\": String\n  }\n  \"categories\": [ String, String ... ]\n}",
           "type": "200"
         }
@@ -55,8 +55,13 @@
     "error": {
       "examples": [
         {
-          "title": "Error-Response:",
+          "title": "Error-Response: 400",
           "content": "HTTP/1.1 400 Bad request\n{\n  \"code\": 400,\n  \"message\": \"Missing id parameter in path\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response: 404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"code\": 404,\n  \"message\": \"Item with id MLA6224275519 not found\"\n}",
           "type": "json"
         }
       ]
@@ -112,7 +117,7 @@
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response: 200",
           "content": "HTTP/1.1 200 OK\n{\n  \"author\": {\n    \"name\": String\n    \"lastname\": String\n  },\n  \"categories\": [ String, String ... ],\n  \"items\":[\n    {\n      \"id\": String,\n      \"title\": String,\n      \"price\": {\n          \"currency\": String,\n          \"amount\": Number,\n          \"decimals\": Number\n      },\n      \"picture\": String,\n      \"condition\": String,\n      \"free_shipping\": Boolean\n    }\n  ]\n}",
           "type": "200"
         }
@@ -121,8 +126,13 @@
     "error": {
       "examples": [
         {
-          "title": "Error-Response:",
+          "title": "Error-Response: 400",
           "content": "HTTP/1.1 400 Bad request\n{\n  \"code\": 400,\n  \"message\": \"Missing parameter q\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response: 404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"code\": 404,\n  \"message\": \"No Data Found\"\n}",
           "type": "json"
         }
       ]
