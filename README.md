@@ -52,4 +52,37 @@ npm run deploy:prd
 npm run test
 ```
 
+Estructura del proyecto
 
+```
+meli-api
+├── config
+│   ├── custom-environment-variables.json --> Disponibiliza configs que se pueden sobreescribir con variables de entorno
+│   └── default.json --> Variables de entorno por defecto
+├── dist --> Archivos compilados de la app con babel y webpack
+├── docs --> Documentacion de apidoc
+├── package.json --> Lista las dependencias y comandos disponibles de npm
+├── package-lock.json --> Versiones estatificadas de las dependencias npm
+├── README.md --> Info del proyecto
+├── serverless.yml --> Archivo para crear la infraestructura en AWS de Lambda + Api Gateway
+├── src
+│   ├── controllers
+│   │   └── product
+│   │       ├── MeliDataProvider.ts --> Funciones que hacen los fetch al provider MELI
+│   │       └── ProductController.ts --> Mapea la respuesta de la Api de Mercadolibre a un modelo propio
+│   ├── middlewares
+│   │   ├── common.ts --> Middlewares basicos para capturar el body, usar compresion, etc
+│   │   └── index.ts --> Exporta los middlewares dentro de common
+│   ├── models
+│   │   └── ProductAPI.ts --> Clases e interfaces necesarias para crear las respuestas de esta Api
+│   ├── routes
+│   │   ├── index.ts --> Exporta todas las rutas de las subcarpetas listadas abajo
+│   │   └── product
+│   │       └── routes.ts --> Rutas relacionadas con productos
+│   ├── server.ts --> Archivo inicial para iniicar el server
+│   └── utils
+│       ├── Helper.ts --> Funciones genericas de uso frecuente
+│       ├── Helper.spec.ts --> Test de las funciones
+│       └── index.ts
+└── tsconfig.json
+```
