@@ -42,7 +42,7 @@ export const search = async (q: string) : Promise<SearchProductsAPIResponse|Erro
 
 export const get = async (id: string) : Promise<GetProductAPIResponse|Error> => {
   const product = await getProductsById(id);
-  
+ 
   /**
    * On MELI API a Get for unknown id returns an error object:
    * 
@@ -53,7 +53,7 @@ export const get = async (id: string) : Promise<GetProductAPIResponse|Error> => 
    *  "cause": []
    * }
    * */
-  if(!product.ok) throw product;
+  if(product.error) throw product;
 
   const item = {
       id: product.id,
