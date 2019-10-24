@@ -58,7 +58,7 @@ npm run test
 meli-api
 ├── config
 │   ├── custom-environment-variables.json --> Disponibiliza configs que se pueden sobreescribir con variables de entorno
-│   └── default.json --> Variables de entorno por defecto
+│   └── default.json --> Configuraciones por defecto
 ├── dist --> Archivos compilados de la app con babel y webpack
 ├── docs --> Documentacion de apidoc
 ├── package.json --> Lista las dependencias y comandos disponibles de npm
