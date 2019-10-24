@@ -1,16 +1,17 @@
 // Returns only two decimals of a given float (with at least two decimals) or zero otherwise
-export const getDecimalsFromNumber = (number: number) : number => {
-  const decimals = number - Math.floor(number);
-  return decimals > 0 ? parseInt(decimals.toString().slice(2, 4)) : 0;
+export const getTwoDecimalsFromNumber = (number: number) : number => {
+  const parts = (number + "").split("."); 
+  return parts.length > 1 ? parseInt(parts[1].slice(0,2)) : 0;
 }
 
 // Returns most frequent word in array
-export const getMostFrequentWord = (array: any) => {
-  let result: any = [];
+export const getMostFrequentWord = (array: string[]) : string => {
+  let result: string = '';
   let tmp = 0;
 
   for(let i = 0; i < array.length; i++){
     let count = 0;
+
     for(let j = 0; j < array.length; j++){
       if(array[i]===array[j]){
         count++;
@@ -21,5 +22,6 @@ export const getMostFrequentWord = (array: any) => {
       result = array[i];
     }
   }
+  
   return result;
 }

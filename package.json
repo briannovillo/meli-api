@@ -7,7 +7,7 @@
     "dev": "tsc-watch --onSuccess \"sls offline start\"",
     "deploy:prd": "serverless config credentials --provider aws --key $AWS_KEY --secret $AWS_SECRET -o && sls deploy --stage='prd'",
     "apidoc": "npx apidoc -i ./src/routes/ -o docs/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ts-mocha src/**/*.spec.ts"
   },
   "repository": {
     "type": "git",
@@ -33,22 +33,28 @@
     "serverless-http": "^2.3.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.4",
     "@types/compression": "^1.0.1",
     "@types/cors": "^2.8.6",
     "@types/dotenv": "^6.1.1",
+    "@types/expect": "^1.20.4",
     "@types/express": "^4.17.1",
+    "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.11",
     "@types/node-fetch": "^2.5.2",
     "@typescript-eslint/eslint-plugin": "^2.3.2",
     "@typescript-eslint/parser": "^2.3.2",
     "apidoc": "^0.17.7",
+    "chai": "^4.2.0",
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-import": "^2.18.2",
+    "mocha": "^6.2.2",
     "prettier": "^1.18.2",
     "serverless": "^1.53.0",
     "serverless-offline": "^5.12.0",
+    "ts-mocha": "^6.0.0",
     "tsc-watch": "^4.0.0",
     "typescript": "^3.6.3"
   },

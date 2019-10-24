@@ -1,6 +1,6 @@
 import { searchProductsByTitle, getProductsById, getCategoryById } from "./MeliDataProvider";
 import { Product, GetProductAPIResponse, SearchProductsAPIResponse } from "../../models/ProductAPI";
-import { getMostFrequentWord, getDecimalsFromNumber } from "../../utils/Helper";
+import { getMostFrequentWord, getTwoDecimalsFromNumber } from "../../utils/Helper";
 
 // Returns categories tree for a given id
 const getCategoryChilds = async (id: string) => {
@@ -28,7 +28,7 @@ export const search = async (q: string) : Promise<SearchProductsAPIResponse|Erro
       price: {
           currency: json.currency_id,
           amount: Math.floor(json.price),
-          decimals: getDecimalsFromNumber(json.price)
+          decimals: getTwoDecimalsFromNumber(json.price)
       },
       picture: json.thumbnail,
       condition: json.condition,
@@ -61,7 +61,7 @@ export const get = async (id: string) : Promise<GetProductAPIResponse|Error> => 
       price: {
           currency: product.currency_id,
           amount: Math.floor(product.price),
-          decimals: getDecimalsFromNumber(product.price)
+          decimals: getTwoDecimalsFromNumber(product.price)
       },
       picture: product.pictures[0].url,
       condition: product.condition,

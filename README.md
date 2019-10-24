@@ -10,11 +10,11 @@ Documentación de la API: https://briannovillo.github.io/meli-api/
 
 - [x] Se usó *Typescript* para hacer la API mas predecible durante el desarrollo, dado que se puede ver en todo momento de que tipo de dato son los argumentos que esperan y devuelven las funciones y asi prevenir errores en tiempo de ejecución
 - [x] *Express* como motor de routing y middleware porque se requería en el documento de especificación
-- [x] Se deployó el proyecto con *serverless*, el mismo se usa tanto en local durante el desarrollo con [serverless offline](https://github.com/dherault/serverless-offline), como en produccion como una funcion lambda de AWS bajo un Api Gateway
+- [x] Se deployó el proyecto con *Serverless*, el mismo se usa tanto en local durante el desarrollo con [serverless offline](https://github.com/dherault/serverless-offline), como en produccion como una funcion lambda de AWS bajo un Api Gateway
 - [x] Se configuró *CircleCI* para que cada vez que se hace una release de Github se corran los tests y se haga deploy del Lambda en produccion, al tener este proceso simplificado se puede tener delivery continuo en prod
-- [x] Se agregó *apidoc* para mantener documentados con comentarios todos los recursos de la API
+- [x] Se agregó *Apidoc* para mantener documentados con comentarios todos los recursos de la API
 - [x] El proyecto cuenta tambien con *ESLint* para mantener la consistencia en el formato del código aunque desarrollen equipos de muchas personas.
-- [ ] Agregar tests con *mocha/chai/sinon*
+- [x] La aplicación cuenta con algunos tests hechos con *mocha/chai*
 - [ ] Agregar *Morgan+Winston* como Logger remoto
 - [ ] Agregar badges de Github tales como build passing o code coverage
 
@@ -41,6 +41,11 @@ npm run apidoc
 * Si se tienen las keys y token de AWS se puede realizar un hotfix en producción con el siguiente comando
 ```
 npm run deploy:prd
+```
+
+* Correr tests
+```
+npm run test
 ```
 
 
