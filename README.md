@@ -1,3 +1,7 @@
+**CircleCi Build status:** [![CircleCI](https://circleci.com/gh/briannovillo/meli-api/tree/master.svg?style=svg)](https://circleci.com/gh/briannovillo/meli-api/tree/master)
+
+
+
 # REST API Mercadolibre
 
 Url productiva: https://xcemt4j6ui.execute-api.us-east-1.amazonaws.com/prd/api/items?q=computacion \
